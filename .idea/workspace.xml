@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dd8641d1-fc23-4733-a36a-472d524e6538" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/load_data_multimodal.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_data_multimodal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multimodal_ner.py" beforeDir="false" afterPath="$PROJECT_DIR$/multimodal_ner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +16,10 @@
         <entry file="file://$PROJECT_DIR$/vgg_image_feature.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="77">
-                <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+              <first_editor relative-caret-position="1695">
+                <caret line="113" column="87" lean-forward="true" selection-start-line="113" selection-start-column="87" selection-end-line="113" selection-end-column="87" />
               </first_editor>
-              <second_editor relative-caret-position="-105" />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -29,13 +28,13 @@
         <entry file="file://$PROJECT_DIR$/ner_evaluate.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="78">
-                <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
                 <folding>
                   <element signature="e#0#13#0" expanded="true" />
                 </folding>
               </first_editor>
-              <second_editor relative-caret-position="-57" />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -44,13 +43,10 @@
         <entry file="file://$PROJECT_DIR$/load_data_multimodal.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="150">
-                <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-                <folding>
-                  <element signature="e#0#13#0" expanded="true" />
-                </folding>
+              <first_editor relative-caret-position="60">
+                <caret line="4" selection-start-line="4" selection-end-line="4" />
               </first_editor>
-              <second_editor relative-caret-position="-105" />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -59,13 +55,13 @@
         <entry file="file://$PROJECT_DIR$/multimodal_ner.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="165">
+              <first_editor relative-caret-position="795">
                 <caret line="53" column="9" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="9" />
                 <folding>
                   <element signature="e#0#42#0" expanded="true" />
                 </folding>
               </first_editor>
-              <second_editor relative-caret-position="-105" />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -151,12 +147,12 @@
       <workItem from="1574864591673" duration="1487000" />
       <workItem from="1574921293236" duration="268000" />
       <workItem from="1574934219224" duration="2385000" />
-      <workItem from="1574937048698" duration="3365000" />
+      <workItem from="1574937048698" duration="3555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7505000" />
+    <option name="totallyTimeSpent" value="7695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="280" y="1079" width="1366" height="728" extended-state="6" />
@@ -195,49 +191,46 @@
     <entry file="file://$PROJECT_DIR$/load_data_multimodal.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="150">
-            <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-            <folding>
-              <element signature="e#0#13#0" expanded="true" />
-            </folding>
+          <first_editor relative-caret-position="60">
+            <caret line="4" selection-start-line="4" selection-end-line="4" />
           </first_editor>
-          <second_editor relative-caret-position="-105" />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/multimodal_ner.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="165">
+          <first_editor relative-caret-position="795">
             <caret line="53" column="9" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="9" />
             <folding>
               <element signature="e#0#42#0" expanded="true" />
             </folding>
           </first_editor>
-          <second_editor relative-caret-position="-105" />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ner_evaluate.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="78">
-            <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
             <folding>
               <element signature="e#0#13#0" expanded="true" />
             </folding>
           </first_editor>
-          <second_editor relative-caret-position="-57" />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vgg_image_feature.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="77">
-            <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <first_editor relative-caret-position="1695">
+            <caret line="113" column="87" lean-forward="true" selection-start-line="113" selection-start-column="87" selection-end-line="113" selection-end-column="87" />
           </first_editor>
-          <second_editor relative-caret-position="-105" />
+          <second_editor />
         </state>
       </provider>
     </entry>

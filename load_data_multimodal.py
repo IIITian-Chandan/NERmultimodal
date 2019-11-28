@@ -1,7 +1,7 @@
 import codecs
 import os
 from collections import Counter
-import cPickle
+import _pickle as cPickle
 import h5py
 import numpy as np
 from keras.preprocessing.sequence import pad_sequences
