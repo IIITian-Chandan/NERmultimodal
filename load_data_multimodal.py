@@ -9,6 +9,7 @@ from numpy import random
 from gensim.models import word2vec
 # from word2vecReader import Word2Vec
 import sys
+from importlib import reload
 
 reload(sys)
 sys.setdefaultencoding('utf8')
