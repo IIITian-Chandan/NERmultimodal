@@ -12,7 +12,7 @@ import sys
 from importlib import reload
 
 reload(sys)
-sys.setdefaultencoding('utf8')
+# sys.setdefaultencoding('utf8')
 
 data_dir = '../data'
 tweet_data_dir = '../data/tweet_new/'
