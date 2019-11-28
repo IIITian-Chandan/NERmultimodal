@@ -12,12 +12,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vgg_image_feature.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="1695">
-                <caret line="113" column="87" lean-forward="true" selection-start-line="113" selection-start-column="87" selection-end-line="113" selection-end-column="87" />
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               </first_editor>
               <second_editor />
             </state>
@@ -39,12 +39,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/load_data_multimodal.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="60">
-                <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <first_editor relative-caret-position="150">
+                <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+                <folding>
+                  <element signature="e#0#13#0" expanded="true" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -147,12 +150,12 @@
       <workItem from="1574864591673" duration="1487000" />
       <workItem from="1574921293236" duration="268000" />
       <workItem from="1574934219224" duration="2385000" />
-      <workItem from="1574937048698" duration="3555000" />
+      <workItem from="1574937048698" duration="3985000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7695000" />
+    <option name="totallyTimeSpent" value="8125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="280" y="1079" width="1366" height="728" extended-state="6" />
@@ -188,16 +191,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/load_data_multimodal.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor relative-caret-position="60">
-            <caret line="4" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multimodal_ner.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
@@ -227,8 +220,21 @@
     <entry file="file://$PROJECT_DIR$/vgg_image_feature.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="1695">
-            <caret line="113" column="87" lean-forward="true" selection-start-line="113" selection-start-column="87" selection-end-line="113" selection-end-column="87" />
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load_data_multimodal.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <folding>
+              <element signature="e#0#13#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>

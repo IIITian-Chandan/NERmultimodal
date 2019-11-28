@@ -7,7 +7,7 @@ import numpy as np
 from keras.preprocessing.sequence import pad_sequences
 from numpy import random
 from gensim.models import word2vec
-from word2vecReader import Word2Vec
+# from word2vecReader import Word2Vec
 import sys
 
 reload(sys)
