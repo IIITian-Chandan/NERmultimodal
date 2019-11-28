@@ -93,9 +93,9 @@ if __name__ == '__main__':
             img_id_list.append(rev[0])
 
     for item in img_id_list:
-        print "process " + item + '.jpg'
+        print("process " + item + '.jpg')
         img_path = dataPath + item + '.jpg'
-        print img_path
+        print(img_path)
         try:
             im = cv2.resize(cv2.imread(img_path), (224,224))
         except:
@@ -111,5 +111,5 @@ if __name__ == '__main__':
         features = get_features(model, 30, im)
         feat = features[0]
 
-        print '%s feature extracted in %f  seconds.' % (img_path, time.time() - start)
+        print('%s feature extracted in %f  seconds.' % (img_path, time.time() - start))
         vgg_img_feature.create_dataset(name=item, data=feat) 

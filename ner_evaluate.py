@@ -1,5 +1,6 @@
 import codecs
-import numpy as np 
+import numpy as np
+
 
 def get_chunks(seq, tags):
     """
@@ -20,7 +21,7 @@ def get_chunks(seq, tags):
     chunks = []
     chunk_type, chunk_start = None, None
     for i, tok in enumerate(seq):
-        #End of a chunk 1 
+        # End of a chunk 1
         if tok == default and chunk_type is not None:
             # Add a chunk.
             chunk = (chunk_type, chunk_start, i)
@@ -45,6 +46,7 @@ def get_chunks(seq, tags):
 
     return chunks
 
+
 def get_chunk_type(tok, idx_to_tag):
     """
     Args:
@@ -58,9 +60,9 @@ def get_chunk_type(tok, idx_to_tag):
     tag_type = tag_name.split('-')[-1]
     return tag_class, tag_type
 
-# def run_evaluate(self, sess, test, tags):
-def evaluate(labels_pred, labels,words,tags,max_sent,id_to_vocb):
 
+# def run_evaluate(self, sess, test, tags):
+def evaluate(labels_pred, labels, words, tags, max_sent, id_to_vocb):
     """
     words,pred, right: is a sequence, is label index or word index.
     Evaluates performance on test set
@@ -74,28 +76,26 @@ def evaluate(labels_pred, labels,words,tags,max_sent,id_to_vocb):
         ...
     """
 
-    file_write = file('../data/predicted/results.txt','w')
+    file_write = file('../data/predicted/results.txt', 'w')
 
-
-    index = 0 
+    index = 0
     sents_length = []
     for word in words:
-    	if 0 in word: 
-    		nozero_inds = np.nonzero(word)
-    		index = nozero_inds[0][0]
-    		sents_length.append(len(word)-index)  # the index of '0' is padded
-    	else:
-    		sents_length.append(35)
+        if 0 in word:
+            nozero_inds = np.nonzero(word)
+            index = nozero_inds[0][0]
+            sents_length.append(len(word) - index)  # the index of '0' is padded
+        else:
+            sents_length.append(35)
 
     accs = []
     correct_preds, total_correct, total_preds = 0., 0., 0.
 
-
     for lab, lab_pred, length, word_sent in zip(labels, labels_pred, sents_length, words):
-    	word_st = word_sent[max_sent-length:]
-        lab = lab[max_sent-length:]
-        lab_pred = lab_pred[max_sent-length:]
-        accs += [a==b for (a, b) in zip(lab, lab_pred)]
+        word_st = word_sent[max_sent - length:]
+        lab = lab[max_sent - length:]
+        lab_pred = lab_pred[max_sent - length:]
+        accs += [a == b for (a, b) in zip(lab, lab_pred)]
         lab_chunks = set(get_chunks(lab, tags))
         lab_pred_chunks = set(get_chunks(lab_pred, tags))
         correct_preds += len(lab_chunks & lab_pred_chunks)
@@ -103,85 +103,85 @@ def evaluate(labels_pred, labels,words,tags,max_sent,id_to_vocb):
         total_correct += len(lab_chunks)
 
         for i in range(len(word_st)):
-        	file_write.write('%s\t%s\t%s\n'%(id_to_vocb[word_st[i]],lab[i],lab_pred[i]))
+            file_write.write('%s\t%s\t%s\n' % (id_to_vocb[word_st[i]], lab[i], lab_pred[i]))
         file_write.write('\n')
 
     p = correct_preds / total_preds if correct_preds > 0 else 0
     r = correct_preds / total_correct if correct_preds > 0 else 0
     f1 = 2 * p * r / (p + r) if correct_preds > 0 else 0
     acc = np.mean(accs)
-    return acc, f1,p,r
+    return acc, f1, p, r
 
-def evaluate_each_class(labels_pred, labels,words,tags,max_sent,id_to_vocb, class_type):
-	#class_type:PER or LOC or ORG
-	index = 0 
-	sents_length = []
-	for word in words:
-		if 0 in word: 
-			nozero_inds = np.nonzero(word)
-			index = nozero_inds[0][0]
-			sents_length.append(len(word)-index)  # the index of '0' is padded
-		else:
-			sents_length.append(35)
-	accs = []
-	correct_preds, total_correct, total_preds = 0., 0., 0.
-	correct_preds_cla_type, total_preds_cla_type, total_correct_cla_type = 0., 0., 0.
 
-	for lab, lab_pred, length, word_sent in zip(labels, labels_pred, sents_length, words):
-		lab_pre_class_type = []
-		lab_class_type=[]
+def evaluate_each_class(labels_pred, labels, words, tags, max_sent, id_to_vocb, class_type):
+    # class_type:PER or LOC or ORG
+    index = 0
+    sents_length = []
+    for word in words:
+        if 0 in word:
+            nozero_inds = np.nonzero(word)
+            index = nozero_inds[0][0]
+            sents_length.append(len(word) - index)  # the index of '0' is padded
+        else:
+            sents_length.append(35)
+    accs = []
+    correct_preds, total_correct, total_preds = 0., 0., 0.
+    correct_preds_cla_type, total_preds_cla_type, total_correct_cla_type = 0., 0., 0.
 
-		word_st = word_sent[max_sent-length:]
-		lab = lab[max_sent-length:]
-		lab_pred = lab_pred[max_sent-length:]
-		lab_chunks = get_chunks(lab, tags)
-		lab_pred_chunks = get_chunks(lab_pred, tags)
-		for i in range(len(lab_pred_chunks)):
-			if lab_pred_chunks[i][0] ==class_type:
-				lab_pre_class_type.append(lab_pred_chunks[i])
-		lab_pre_class_type_c = set(lab_pre_class_type)
+    for lab, lab_pred, length, word_sent in zip(labels, labels_pred, sents_length, words):
+        lab_pre_class_type = []
+        lab_class_type = []
 
-		for i in range(len(lab_chunks)):
-			if lab_chunks[i][0] ==class_type:
-				lab_class_type.append(lab_chunks[i])
-		lab_class_type_c = set(lab_class_type)
-		
-		lab_chunksss = set(lab_chunks) 
-		correct_preds_cla_type +=len(lab_pre_class_type_c & lab_chunksss)
-		total_preds_cla_type +=len(lab_pre_class_type_c)
-		total_correct_cla_type += len(lab_class_type_c)
+        word_st = word_sent[max_sent - length:]
+        lab = lab[max_sent - length:]
+        lab_pred = lab_pred[max_sent - length:]
+        lab_chunks = get_chunks(lab, tags)
+        lab_pred_chunks = get_chunks(lab_pred, tags)
+        for i in range(len(lab_pred_chunks)):
+            if lab_pred_chunks[i][0] == class_type:
+                lab_pre_class_type.append(lab_pred_chunks[i])
+        lab_pre_class_type_c = set(lab_pre_class_type)
 
-	p = correct_preds_cla_type / total_preds_cla_type if correct_preds_cla_type > 0 else 0
-	r = correct_preds_cla_type / total_correct_cla_type if correct_preds_cla_type > 0 else 0
-	f1 = 2 * p * r / (p + r) if correct_preds_cla_type > 0 else 0
+        for i in range(len(lab_chunks)):
+            if lab_chunks[i][0] == class_type:
+                lab_class_type.append(lab_chunks[i])
+        lab_class_type_c = set(lab_class_type)
 
-	return f1,p,r
-	
+        lab_chunksss = set(lab_chunks)
+        correct_preds_cla_type += len(lab_pre_class_type_c & lab_chunksss)
+        total_preds_cla_type += len(lab_pre_class_type_c)
+        total_correct_cla_type += len(lab_class_type_c)
+
+    p = correct_preds_cla_type / total_preds_cla_type if correct_preds_cla_type > 0 else 0
+    r = correct_preds_cla_type / total_correct_cla_type if correct_preds_cla_type > 0 else 0
+    f1 = 2 * p * r / (p + r) if correct_preds_cla_type > 0 else 0
+
+    return f1, p, r
+
 
 if __name__ == '__main__':
-	max_sent=10
-	tags = {'0':0,
-	'B-PER':1, 'I-PER':2,
-	'B-LOC':3, 'I-LOC':4,
-	'B-ORG':5, 'I-ORG':6,
-	'B-OTHER':7, 'I-OTHER':8,
-	'O':9}
-	labels_pred=[
-				[9,9,9,1,3,1,2,2,0,0],
-				[9,9,9,1,3,1,2,0,0,0]
-	]
-	labels = [
-			[9,9,9,9,3,1,2,2,0,0],
-			[9,9,9,9,3,1,2,2,0,0]
-			]
-	words = [
-			[0,0,0,0,0,3,6,8,5,7],
-			[0,0,0,4,5,6,7,9,1,7]
-			]
-	id_to_vocb = {0:'a',1:'b',2:'c',3:'d',4:'e',5:'f',6:'g',7:'h',8:'i',9:'j'}
-	class_type = 'PER'
-	acc, f1,p,r = evaluate(labels_pred, labels,words,tags,max_sent,id_to_vocb)
-	print acc, f1,p,r
-	f1,p,r = evaluate_each_class(labels_pred, labels,words,tags,max_sent,id_to_vocb, class_type)
-	print f1,p,r
-
+    max_sent = 10
+    tags = {'0': 0,
+            'B-PER': 1, 'I-PER': 2,
+            'B-LOC': 3, 'I-LOC': 4,
+            'B-ORG': 5, 'I-ORG': 6,
+            'B-OTHER': 7, 'I-OTHER': 8,
+            'O': 9}
+    labels_pred = [
+        [9, 9, 9, 1, 3, 1, 2, 2, 0, 0],
+        [9, 9, 9, 1, 3, 1, 2, 0, 0, 0]
+    ]
+    labels = [
+        [9, 9, 9, 9, 3, 1, 2, 2, 0, 0],
+        [9, 9, 9, 9, 3, 1, 2, 2, 0, 0]
+    ]
+    words = [
+        [0, 0, 0, 0, 0, 3, 6, 8, 5, 7],
+        [0, 0, 0, 4, 5, 6, 7, 9, 1, 7]
+    ]
+    id_to_vocb = {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5: 'f', 6: 'g', 7: 'h', 8: 'i', 9: 'j'}
+    class_type = 'PER'
+    acc, f1, p, r = evaluate(labels_pred, labels, words, tags, max_sent, id_to_vocb)
+    print(acc, f1, p, r)
+    f1, p, r = evaluate_each_class(labels_pred, labels, words, tags, max_sent, id_to_vocb, class_type)
+    print(f1, p, r)
